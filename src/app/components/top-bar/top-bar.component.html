@@ -7,6 +7,7 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav #sidenav mode="side" [(opened)]="isOpen">
         <mat-nav-list>
+            <a mat-list-item [routerLink]="''"> Home </a>
             <a mat-list-item [routerLink]="'/spectator'"> Spectator </a>
             <a mat-list-item [routerLink]="'/commentator'"> Commentator </a>
         </mat-nav-list>

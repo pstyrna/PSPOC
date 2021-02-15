@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { WhoYouAreComponent } from './components/who-you-are/who-you-are.component';
 import { MaterialModule } from './shared/material.module';
+import { AreYouSureComponent } from './components/are-you-sure/are-you-sure.component';
 
 @NgModule({
-    declarations: [AppComponent, TopBarComponent, WhoYouAreComponent],
+    declarations: [AppComponent, TopBarComponent, WhoYouAreComponent, AreYouSureComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,

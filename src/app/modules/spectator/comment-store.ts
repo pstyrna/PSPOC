@@ -13,11 +13,11 @@ export class CommentStore {
         this.broadcastCommentService
             .receive()
             .pipe(untilDestroyed(this))
-            .subscribe((c) => this.commentList$.next([...this.commentList$.value, c]));
+            .subscribe((c) => this.commentList$.next([c, ...this.commentList$.value]));
         this.broadcastCommentService
             .receiveSpam()
             .pipe(untilDestroyed(this))
-            .subscribe((c) => this.commentList$.next([...this.commentList$.value, c]));
+            .subscribe((c) => this.commentList$.next([c, ...this.commentList$.value]));
     }
 
     getAll(): Observable<Comment[]> {
