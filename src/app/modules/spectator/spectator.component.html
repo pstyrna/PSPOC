@@ -1,0 +1,7 @@
+<cdk-virtual-scroll-viewport autosize class="viewport">
+    <ng-container *cdkVirtualFor="let comment of commentList$ | async">
+        <div class="comment">
+            <app-comment-row [comment]="comment"></app-comment-row>
+        </div>
+    </ng-container>
+</cdk-virtual-scroll-viewport>

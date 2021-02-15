@@ -1,0 +1,26 @@
+<div class="content">
+    <button *ngIf="!isStarted" mat-flat-button color="primary" (click)="onStart()">Start Transmission </button>
+    <ng-container *ngIf="isStarted">
+        <mat-form-field class="comment-input">
+            <mat-label>Comment</mat-label>
+            <textarea matInput [(ngModel)]="content"></textarea>
+        </mat-form-field>
+        <button mat-flat-button class="send-button" color="primary" (click)="onSend()">Send</button>
+        <div class="spam-commentator">
+            <mat-slide-toggle color="primary" [(ngModel)]="isSpam" (ngModelChange)="onSpam()">Spam</mat-slide-toggle>
+            <ng-container *ngIf="isSpam">
+                <div class="slider-text"><a>Slow</a><a>Fast</a></div>
+                <mat-slider
+                    class="slider"
+                    color="primary"
+                    [max]="10"
+                    [min]="1"
+                    [step]="1"
+                    [ngModel]="spamSpeed$ | async"
+                    (ngModelChange)="spamSpeed$.next($event)"
+                >
+                </mat-slider>
+            </ng-container>
+        </div>
+    </ng-container>
+</div>

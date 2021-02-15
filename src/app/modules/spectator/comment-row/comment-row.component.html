@@ -1,0 +1,6 @@
+<div class="content" *ngIf="comment && comment.content">
+    <p class="date">
+        {{ comment.date.toString().substr(15, 9) }} <a *ngIf="comment.commentator"> - {{ comment.commentator }} </a>
+    </p>
+    <p> {{ comment.content }} </p>
+</div>

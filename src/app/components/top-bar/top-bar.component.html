@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Example icon-button with menu icon" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>{{ page$ | async }}</span>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" [(opened)]="isOpen">
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/spectator'"> Spectator </a>
+            <a mat-list-item [routerLink]="'/commentator'"> Commentator </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content (click)="sidenav.close()">
+        <router-outlet> </router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
