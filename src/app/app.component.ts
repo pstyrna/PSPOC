@@ -7,11 +7,11 @@ import { BrowserPushService } from './shared/browser-push.service';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    title = 'PS-POC';
+    public title = 'PS-POC';
 
     constructor(private browserPushService: BrowserPushService) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.browserPushService.subscribeForPush();
     }
 }

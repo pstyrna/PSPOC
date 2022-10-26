@@ -20,7 +20,7 @@ export class CommentStore {
             .subscribe((c) => this.commentList$.next([c, ...this.commentList$.value]));
     }
 
-    getAll(): Observable<Comment[]> {
+    public getAll(): Observable<Comment[]> {
         return this.commentList$.asObservable();
     }
 }

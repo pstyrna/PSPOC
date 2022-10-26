@@ -10,11 +10,11 @@ import { filter, map } from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TopBarComponent implements OnInit {
-    page$?: Observable<string>;
-    isOpen = false;
+    public page$?: Observable<string>;
+    public isOpen = false;
     constructor(private router: Router) {}
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.page$ = this.router.events.pipe(
             filter((e): e is NavigationEnd => e instanceof NavigationEnd),
             map((e) => e.url.charAt(1).toUpperCase() + e.url.slice(2))

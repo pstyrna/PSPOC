@@ -8,7 +8,7 @@ import { CommentStore } from './comment-store';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpectatorComponent {
-    commentList$ = this.commentStore.getAll();
+    public commentList$ = this.commentStore.getAll();
 
     constructor(private commentStore: CommentStore) {}
 }

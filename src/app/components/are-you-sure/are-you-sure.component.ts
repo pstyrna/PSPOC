@@ -9,14 +9,14 @@ import { Router } from '@angular/router';
 export class AreYouSureComponent implements OnInit {
     constructor(private router: Router) {}
 
-    ngOnInit(): void {}
+    public ngOnInit(): void {}
 
-    onYes(): void {
+    public onYes(): void {
         sessionStorage.setItem('areYouSure', 'yes');
         this.router.navigate(['commentator']);
     }
 
-    onNo(): void {
+    public onNo(): void {
         this.router.navigate(['']);
     }
 }

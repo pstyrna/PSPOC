@@ -14,29 +14,29 @@ import { BroadcastCommentService } from '../../shared/broadcast-comment.service'
 })
 @UntilDestroy()
 export class CommentatorComponent {
-    content?: string;
-    isSpam = false;
-    isStarted = false;
-    spamSpeed$ = new BehaviorSubject(1);
+    public content?: string;
+    public isSpam = false;
+    public isStarted = false;
+    public spamSpeed$ = new BehaviorSubject(1);
 
     private spamSubscription?: Subscription;
     private commentatorId = newGuid();
 
     constructor(private sendCommentService: BroadcastCommentService, private browserPushService: BrowserPushService) {}
 
-    onStart(): void {
+    public onStart(): void {
         this.browserPushService.send('Transmission has started', '/spectator');
         this.isStarted = true;
     }
 
-    onSend(): void {
+    public onSend(): void {
         if (this.content) {
             this.sendCommentService.send(this.commentatorId, this.content);
             this.content = undefined;
         }
     }
 
-    onSpam(): void {
+    public onSpam(): void {
         if (this.isSpam) {
             this.spamSubscription = this.spamSpeed$
                 .pipe(

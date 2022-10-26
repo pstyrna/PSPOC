@@ -6,7 +6,7 @@ import { CanActivate, Router } from '@angular/router';
 export class CommentatorGuard implements CanActivate {
     constructor(private router: Router) {}
 
-    canActivate(): boolean {
+    public canActivate(): boolean {
         if (sessionStorage.getItem('areYouSure')) {
             return true;
         }

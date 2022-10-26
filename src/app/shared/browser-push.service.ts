@@ -4,17 +4,18 @@ import { Observable } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class BrowserPushService {
     private permission: NotificationPermission;
+
     constructor() {
         this.permission = this.isSupported() ? Notification.permission : 'denied';
     }
 
-    subscribeForPush(): void {
+    public subscribeForPush(): void {
         if ('Notification' in window) {
             Notification.requestPermission((status) => (this.permission = status));
         }
     }
 
-    send(message: string, url: string): void {
+    public send(message: string, url: string): void {
         this.create(message).subscribe((res) => {
             if (res.event.type === 'click') {
                 res.notification.close();

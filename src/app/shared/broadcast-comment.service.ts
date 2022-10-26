@@ -12,21 +12,21 @@ export class BroadcastCommentService extends BaseBroadcastService<Comment> {
         super(ngZone);
     }
 
-    send(commentatorId: string, content: string): void {
+    public send(commentatorId: string, content: string): void {
         const comment = new Comment(new Date(), commentatorId, content);
         super.sendMessage(this.commentatorChannel, comment);
     }
 
-    sendSpam(content: string): void {
+    public sendSpam(content: string): void {
         const comment = new Comment(new Date(), 'spam', content);
         super.sendMessage(this.spamChannel, comment);
     }
 
-    receive(): Observable<Comment> {
+    public receive(): Observable<Comment> {
         return super.receiveMessage(this.commentatorChannel);
     }
 
-    receiveSpam(): Observable<Comment> {
+    public receiveSpam(): Observable<Comment> {
         return super.receiveMessage(this.spamChannel);
     }
 }
